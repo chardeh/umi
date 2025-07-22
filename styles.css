@@ -724,4 +724,39 @@ body {
   100% {
     transform: translateY(180px);
   }
+
+  
+}
+/* styles.css */
+
+
+/* Counter-specific styles */
+#counter {
+  position: fixed;
+  bottom: 20px;  /* ⬇ Move it down more */
+  left: 55%;     /* ➡ Move it slightly right */
+  transform: translateX(-55%);
+  font-family: 'Dancing Script', cursive;
+  z-index: 9999;
+}
+
+
+#counter .counter-box {
+  background-color: pink;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#counter .label {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+#counter .time {
+  font-size: 1.8em;
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: 1px;
 }

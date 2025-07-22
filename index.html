@@ -642,11 +642,76 @@
     </div> 
    </div> 
   </div> 
-  <button onclick="document.getElementById('song').play()">▶️ Play Music</button>
-  <audio id="song" loop>
-    <source src="die-for-you.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <button 
+  onclick="document.getElementById('song').play()" 
+  style="font-size: 24px; padding: 15px 30px; border-radius: 8px; cursor: pointer;"
+>
+  ▶️ Play Music
+</button>
+
+<audio id="song" loop>
+  <source src="die-for-you.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counter Example</title>
+  <style>
+    #counter {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter"></div> <!-- 🔥 This is the missing element -->
+
+  <script>
+    const startDate = new Date('2024-07-23T00:00:00Z'); // Start date
+    const counterElement = document.getElementById('counter');
   
+    function updateCounter() {
+      const now = new Date();
+      let diff = Math.floor((now - startDate) / 1000);
+  
+      if (diff < 0) {
+        counterElement.innerHTML = `<div class="counter-box">Counting starts on July 23, 2024!</div>`;
+        return;
+      }
+  
+      const days = Math.floor(diff / (24 * 3600));
+      diff %= 24 * 3600;
+      const hours = Math.floor(diff / 3600);
+      diff %= 3600;
+      const minutes = Math.floor(diff / 60);
+      const seconds = diff % 60;
+  
+      counterElement.innerHTML = `
+        <div class="counter-box">
+          <div class="label">💕 My Love Since 💕</div>
+          <div class="time">
+            ${days} days 
+            ${hours.toString().padStart(2, '0')} hours 
+            ${minutes.toString().padStart(2, '0')} minutes 
+            ${seconds.toString().padStart(2, '0')} seconds
+          </div>
+        </div>`;
+    }
+  
+    updateCounter();
+    setInterval(updateCounter, 1000);
+  </script>
+  
+  
+</body>
+</html>
+
 </body>
 </html>
